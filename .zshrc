@@ -1,17 +1,24 @@
+# ZSH and Oh My ZSH config
+
+# Golang Path
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/act12007/.oh-my-zsh
+export ZSH=/Users/adamtoris/.oh-my-zsh
 
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-material.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+# Base16 Shell (useful for Linux)
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# Set tumuxinator editor
+export EDITOR='vim'
+
+# Change title  bar color of iTerm v2 or greater to material. (macOS only)
 printf -- $'\033]6;1;bg;red;brightness;38\a\033]6;1;bg;green;brightness;50\a\033]6;1;bg;blue;brightness;56\a'
 
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -56,14 +63,13 @@ ZSH_THEME="bira"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew)
+plugins=(git gem npm mvn osx vagrant tmux tmuxinator z)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/Cellar/node/6.1.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/texbin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -89,7 +95,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/sbin:$PATH"
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
